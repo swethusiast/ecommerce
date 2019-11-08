@@ -1,13 +1,14 @@
 {
   "name": "ecommerce",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy:fb": "ng build --prod && firebase deploy"
   },
   "private": true,
   "dependencies": {
