@@ -9,7 +9,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav m-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shopping-cart">Shopping Cart</a>
+          <a class="nav-link" routerLink="/shopping-cart">Shopping Cart
+            <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">{{cart.totalItemsCount}}</span>
+          </a>
         </li>
       </ul>
 

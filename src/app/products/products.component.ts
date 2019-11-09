@@ -1,10 +1,11 @@
 import { Product } from './../models/product';
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { switchMap } from 'rxjs/operators';
+import { ShoppingCartService } from '../shopping-cart.service';
+import { ShoppingCart } from '../models/shopping-cart';
 
 @Component({
   selector: 'app-products',
