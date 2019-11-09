@@ -1,5 +1,8 @@
 <div class="row">
   <div class="col-md-6">
+    <product-card [product]="product" [show-actions]="false"></product-card>
+  </div>
+  <div class="col-md-6">
     <form #f="ngForm" (ngSubmit)="save(f.value)">
       <div class="form-group">
         <label for="title">Title</label>
@@ -47,7 +50,5 @@
       <button *ngIf="id" type="button" (click)="delete()" class="btn btn-danger">Delete</button>
     </form>
   </div>
-  <div class="col-md-4">
-    <product-card [product]="product" [show-actions]="false"></product-card>
-  </div>
+
 </div>
