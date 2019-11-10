@@ -12,24 +12,40 @@
      <thead>
        <tr>
          <th scope="col">#</th>
-         <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
-         <th scope="col" sortable="area" (sort)="onSort($event)">Area</th>
-         <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
+         <th scope="col" sortable="imageUrl" (sort)="onSort($event)">Image</th>
+         <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+         <th scope="col" sortable="description" (sort)="onSort($event)">Description</th>
+         <th scope="col" sortable="price" (sort)="onSort($event)">Price</th>
+         <th scope="col" sortable="color" (sort)="onSort($event)">Color</th>
+         <th scope="col" sortable="size" (sort)="onSort($event)">Size</th>
+         <th scope="col" sortable="category" (sort)="onSort($event)">Category</th>
        </tr>
      </thead>
      <tbody>
-       <tr *ngFor="let country of products$ | async">
-         <th scope="row">{{ country.$key }}</th>
+       <tr *ngFor="let item of products$ | async; index as i">
+         <th scope="row">{{ i + 1 }}</th>
          <td>
-           <img [src]="//upload.wikimedia.org/wikipedia/commons/2/25/Samsung_Galaxy_S10.jpg" class="mr-2"
-             style="width: 20px">
-           <ngb-highlight [result]="country.title" [term]="service.searchTerm"></ngb-highlight>
+           <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail">
+           </div>
          </td>
          <td>
-           <ngb-highlight [result]="country.price | currency:'USD'" [term]="service.searchTerm"></ngb-highlight>
+           <ngb-highlight [result]="item.title" [term]="service.searchTerm"></ngb-highlight>
+         </td>
+
+         <td>
+           <ngb-highlight [result]="item.description" [term]="service.searchTerm"></ngb-highlight>
          </td>
          <td>
-           <ngb-highlight [result]="country.category" [term]="service.searchTerm"></ngb-highlight>
+           <ngb-highlight [result]="item.price | currency:'USD'" [term]="service.searchTerm"></ngb-highlight>
+         </td>
+         <td>
+           <ngb-highlight [result]="item.color" [term]="service.searchTerm"></ngb-highlight>
+         </td>
+         <td>
+           <ngb-highlight [result]="item.size+' Inches'" [term]="service.searchTerm"></ngb-highlight>
+         </td>
+         <td>
+           <ngb-highlight [result]="item.category" [term]="service.searchTerm"></ngb-highlight>
          </td>
        </tr>
      </tbody>

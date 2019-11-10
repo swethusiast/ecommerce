@@ -1,7 +1,9 @@
-
 export interface Product {
-  $key: string;
+  id: string;
   title: string;
+  description: string;
+  color: string;
+  size: string;
   price: number;
   category: string;
   imageUrl: string;

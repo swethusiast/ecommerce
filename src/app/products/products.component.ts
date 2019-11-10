@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
-import { switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { ShoppingCartService } from '../shopping-cart.service';
 import { ShoppingCart } from '../models/shopping-cart';
 
@@ -28,26 +28,34 @@ export class ProductsComponent implements OnInit {
     this.cart$ = await this.shoppingCartService.getCart();
     this.populateProducts();
   }
-
   private populateProducts() {
     this.productService
       .getAll()
-      .valueChanges()
+      .snapshotChanges()
       .pipe(
-        switchMap((products: Product[]) => {
-          this.products = products;
-          return this.route.queryParamMap;
+        map((action: any) => {
+          return action.map(change => {
+            const data = change.payload.val();
+            const id = change.key;
+            return { id, ...data };
+          });
         }),
       )
-      .subscribe(params => {
-        this.category = params.get('category');
-        this.applyFilter();
+      .subscribe((products: Product[]) => {
+        this.products = products;
+        this.getCategory();
       });
   }
-
+  private getCategory() {
+    this.route.queryParamMap.subscribe(params => {
+      this.category = params.get('category');
+      this.applyFilter();
+    });
+  }
   private applyFilter() {
     this.filteredProducts = this.category
       ? this.products.filter(p => p.category === this.category)
       : this.products;
+    console.log(this.filteredProducts);
   }
 }

@@ -1,8 +1,8 @@
+import { Product } from './../../models/product';
 import { ProductService } from './../../product.service';
 import { CategoryService } from './../../category.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -22,6 +22,11 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit() {
     this.categories$ = this.categoryService.getAll();
+    // this.categoryService.add({
+    //   key: 'smartphones',
+    //   name: 'Smart Phones',
+    // });
+
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
       this.productService

@@ -2,6 +2,7 @@ import { Product } from './models/product';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { SortDirection } from './sortable.directive';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
