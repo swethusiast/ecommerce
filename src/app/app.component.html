@@ -1,13 +1,23 @@
-<div class="container p-3">
-  <app-navbar></app-navbar>
+<div class="container min-vh-100 p-3" (scroll)="onWindowScroll($event);">
+  <div class="animated fadeInDown" id="navbar">
+    <app-navbar></app-navbar>
 
-  <main role="main" class="inner cover">
+  </div>
+  <main class="mt-5">
     <router-outlet></router-outlet>
   </main>
 
-  <footer class="mastfoot mt-auto">
-    <div class="inner">
-      <p> by <a href="#">swethusiast</a>.</p>
+  <footer class="footer mt-5">
+    <div>
+      <p class="mb-0 text-white d-flex align-items-center justify-content-center">
+        <span>© COPYRIGHT 2019 • by</span>
+
+        <a class="btn btn-link text-white py-0" href="https://swethusiast.tk/" target="_blank">
+          swethusiast</a>
+        <span>All Rights Reserved.</span>
+
+
+      </p>
     </div>
   </footer>
 </div>

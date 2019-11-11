@@ -1,0 +1,59 @@
+<div class="mb-5">
+  <div ngbDropdown class="d-inline-block mr-2">
+
+    <button class="btn btn-info btn-block border-0 rounded-0" id="dropdownBasic2" ngbDropdownToggle>Category</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+      <button [class.active]="!category" ngbDropdownItem class="btn btn-light" routerLink="/">All Categories</button>
+
+      <button *ngFor="let c of categories$ | async" ngbDropdownItem routerLink="/" [queryParams]="{ category: c.key }"
+        [class.active]="category === c.$key">
+        {{ c.name }}
+      </button>
+    </div>
+  </div>
+  <div ngbDropdown class="d-inline-block mr-2">
+
+    <button class="btn btn-info btn-block border-0 rounded-0" id="dropdownBasic2" ngbDropdownToggle>Color</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+      <button [class.active]="!color" ngbDropdownItem class="btn btn-light" routerLink="/">All Colors</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="color === 'white'"
+        [queryParams]="{ color: 'white' }" routerLink="/">white</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="color === 'black'"
+        [queryParams]="{ color: 'black' }" routerLink="/">black</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="color === 'blue'" [queryParams]="{ color: 'blue' }"
+        routerLink="/">blue</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="color === 'pink'" [queryParams]="{ color: 'pink' }"
+        routerLink="/">pink</button>
+    </div>
+  </div>
+  <div ngbDropdown class="d-inline-block mr-2">
+
+    <button class="btn btn-info btn-block border-0 rounded-0" id="dropdownBasic2" ngbDropdownToggle>Size</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+      <button [class.active]="!size" ngbDropdownItem class="btn btn-light" routerLink="/">All Sizes</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="size === 6.4" [queryParams]="{ size: 6.4 }"
+        routerLink="/">6.4"</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="size === 5.8" [queryParams]="{ size: 5.8 }"
+        routerLink="/">5.8"</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="size === 4" [queryParams]="{ size: 4 }"
+        routerLink="/">4"</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="size === 1.2" [queryParams]="{ size: 1.2 }"
+        routerLink="/">1.2"</button>
+    </div>
+  </div>
+  <div ngbDropdown class="d-inline-block mr-2">
+
+    <button class="btn btn-info btn-block border-0 rounded-0" id="dropdownBasic2" ngbDropdownToggle>Price</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+      <button [class.active]="!price" ngbDropdownItem class="btn btn-light" routerLink="/">All Prices</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="price === 1000" [queryParams]="{ price: 1000 }"
+        routerLink="/">>1000$</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="price === 700" [queryParams]="{ price: 700 }"
+        routerLink="/">>700$</button>
+      <button ngbDropdownItem class="btn btn-light" [class.active]="price === 300" [queryParams]="{ price: 300 }"
+        routerLink="/">>300$</button>
+
+
+    </div>
+  </div>
+</div>

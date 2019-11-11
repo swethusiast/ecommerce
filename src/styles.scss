@@ -50,9 +50,37 @@ body {
 
 }
 
-.thumbnail {
-  width: 60px;
-  height: 60px;
-  border-radius: 3px;
-  background-size: cover;
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: #e3e6e9;
+}
+
+.page-item.active .page-link {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.dark-backdrop {
+  background-color: #5cb3fd;
+}
+
+.loadingModal .modal-content {
+  background: transparent;
+  border: 0;
+  text-align: center;
+}
+
+.footer {
+  background-color: #17a2b8;
+}
+
+::selection {
+  background: #17a2b8;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #17a2b8;
+  color: #fff;
+
 }
