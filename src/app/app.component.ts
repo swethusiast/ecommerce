@@ -24,7 +24,7 @@ export class AppComponent {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e) {
-    if (window.pageYOffset > 300) {
+    if (window.pageYOffset > 200) {
       const element = document.getElementById('navbar');
       element.classList.add('fixed-top', 'border');
     } else {

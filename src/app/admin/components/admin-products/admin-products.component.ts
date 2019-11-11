@@ -23,7 +23,7 @@ export class AdminProductsComponent implements OnInit {
     NgbdSortableHeaderDirective
   >;
 
-  constructor(private service: TableService) {
+  constructor(public service: TableService) {
     this.products$ = service.products$;
     this.total$ = service.total$;
   }

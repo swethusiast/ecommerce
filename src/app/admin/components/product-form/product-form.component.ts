@@ -14,7 +14,17 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProductFormComponent implements OnInit {
   categories$;
-  product = {};
+  product: Product = {
+    id: '',
+    title: '',
+    description: '',
+    color: '',
+    size: '',
+    price: null,
+    category: '',
+    imageUrl: '',
+  };
+
   id;
 
   constructor(
@@ -34,7 +44,7 @@ export class ProductFormComponent implements OnInit {
       this.productService
         .get(this.id)
         .valueChanges()
-        .subscribe(p => (this.product = p));
+        .subscribe((p: Product) => (this.product = p));
     }
   }
 

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12">
-    <app-product-filter [category]="category" [color]="color"></app-product-filter>
+    <app-product-filter [category]="category" [color]="color" [size]="size" [price]="price"></app-product-filter>
   </div>
   <div class="col-12">
     <div class="row" *ngIf="cart$ | async as cart">
