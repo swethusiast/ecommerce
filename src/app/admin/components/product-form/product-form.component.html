@@ -70,8 +70,9 @@
           <div *ngIf="imageUrl.errors.url">Please enter a valid URL.</div>
         </div>
       </div>
-      <button [disabled]="!f.valid" class="btn btn-info border-0 rounded-0 mr-2">Save</button>
-      <button *ngIf="id" type="button" (click)="delete()" class="btn btn-danger border-0 rounded-0">Delete</button>
+      <button [disabled]="!f.valid" class="btn btn-info border-0 rounded-0 mr-2 mb-2">Save</button>
+      <button *ngIf="id" type="button" (click)="delete()"
+        class="btn btn-danger border-0 rounded-0  mb-2">Delete</button>
     </form>
   </div>
   <div class="col-md-6">

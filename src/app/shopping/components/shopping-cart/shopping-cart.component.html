@@ -1,5 +1,5 @@
 <h1>Shopping Cart</h1>
-<div class="card" *ngIf="cart$ | async as cart" style="width: 80%;">
+<div class="card" *ngIf="cart$ | async as cart">
   <div class="card-body">
     <p>
       You have {{ cart.totalItemsCount }} items in your shopping cart.
